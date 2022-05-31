@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
 
-import { HTTPSnippet, Request } from '../httpsnippet';
+import { HarEntry, HarRequest, HTTPSnippet } from '../httpsnippet';
 import { ClientId, TargetId } from '../targets/targets';
 
 /* eslint-disable jest/no-export,jest/valid-title -- we want to do it just for this one case */
@@ -10,7 +10,7 @@ export interface CustomFixture {
   clientId: ClientId;
   tests: {
     it: string;
-    input: Request;
+    input: HarEntry | HarRequest;
     options: any;
 
     /** a file path pointing to the expected custom fixture result */

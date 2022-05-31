@@ -1,0 +1,11 @@
+DYNAMIC TokenInput
+
+TokenInput.grant_type = "password"
+TokenInput.username = "Grendel.Cainson"
+TokenInput.password = "MadeUpPassword"
+
+TokenJsonInput = "{TokenInput.asjson()}"
+
+ASSIGN proxy = GETRESTProxy()
+
+ASSIGN TokenResponse = proxy.MakeRestRequest(TokenRequestURL,TokenJsonInput, 0, "POST")

@@ -53,7 +53,7 @@ interface Entry {
   request: Partial<HarRequest>;
 }
 
-interface HarEntry {
+export interface HarEntry {
   log: {
     version: string;
     creator: {

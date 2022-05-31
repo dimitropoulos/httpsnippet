@@ -159,6 +159,20 @@ Array [
   Object {
     "clients": Array [
       Object {
+        "description": "Nice client",
+        "key": "rest",
+        "link": "https://developer.niceincontact.com",
+        "title": "Rest Proxy",
+      },
+    ],
+    "default": "nice",
+    "extname": null,
+    "key": "nice",
+    "title": "nicec",
+  },
+  Object {
+    "clients": Array [
+      Object {
         "description": "Node.js native HTTP interface",
         "key": "native",
         "link": "http://nodejs.org/api/http.html#http_http_request_options_callback",

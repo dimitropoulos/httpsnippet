@@ -10,6 +10,7 @@ import { http } from './http/target';
 import { java } from './java/target';
 import { javascript } from './javascript/target';
 import { kotlin } from './kotlin/target';
+import { nice } from './nice/target';
 import { node } from './node/target';
 import { objc } from './objc/target';
 import { ocaml } from './ocaml/target';
@@ -65,6 +66,7 @@ export const targets = {
   java,
   javascript,
   kotlin,
+  nice,
   node,
   objc,
   ocaml,
