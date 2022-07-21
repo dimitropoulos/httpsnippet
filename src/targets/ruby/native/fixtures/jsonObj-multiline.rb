@@ -7,7 +7,9 @@ http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Post.new(url)
 request["content-type"] = 'application/json'
-request.body = "{\n  \"foo\": \"bar\"\n}"
+request.body = JSON.generate({
+  'foo' => 'bar'
+}) 
 
 response = http.request(request)
 puts response.read_body

@@ -1,5 +1,6 @@
 import { CodeBuilder } from '../../../helpers/code-builder';
 import { Client } from '../../targets';
+import { convertType } from '../helpers';
 
 export interface RubyNativeOptions {
   insecureSkipVerify?: boolean;
@@ -13,7 +14,7 @@ export const native: Client<RubyNativeOptions> = {
     description: 'Ruby HTTP client',
   },
   convert: ({ uriObj, method: rawMethod, fullUrl, postData, allHeaders }, options = {}) => {
-    const { insecureSkipVerify = false } = options;
+    const { insecureSkipVerify = false, indent = '  ' } = options;
 
     const { push, blank, join } = new CodeBuilder();
 
@@ -69,7 +70,9 @@ export const native: Client<RubyNativeOptions> = {
       });
     }
 
-    if (postData.text) {
+    if (postData.jsonObj) {
+      push(`request.body = JSON.generate(${convertType(postData.jsonObj, indent)}) `);
+    } else if (postData.text) {
       push(`request.body = ${JSON.stringify(postData.text)}`);
     }
 
